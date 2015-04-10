@@ -6,7 +6,7 @@ giving_service_token = process.env.giving_service_token
 giveroom = "#give"
 
 module.exports = (robot) ->
-    robot.respond /give gift receipt (\d*)/i, (res) ->
+    robot.respond /give gift receipt (\d+)/i, (res) ->
         return if res.envelope.room != giveroom
         
         receipt = res.match[1]
