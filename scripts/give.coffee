@@ -7,7 +7,6 @@ giveroom = "give"
 
 module.exports = (robot) ->
     robot.respond /give gift receipt (\d+)/i, (res) ->
-        console.log res        
         return if res.message.room != giveroom
         
         receipt = res.match[1]
