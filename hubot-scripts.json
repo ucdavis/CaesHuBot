@@ -1,1 +1,6 @@
-["shipit.coffee"]
+[
+  "alot.coffee",
+  "achievement_unlocked.coffee",
+  "shipit.coffee",
+  "xkcd.coffee"
+]
