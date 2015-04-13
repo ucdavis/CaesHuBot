@@ -4,20 +4,20 @@
 
         setTimeout () ->
             res.reply "_grinds beans_"
-            , 60 * 1000
+        , 60 * 1000
 
         setTimeout () ->
             res.reply "_heats up water_"
-            , 2 * 60 * 1000
+        , 2 * 60 * 1000
 
         setTimeout () ->
             res.reply "Water is ready!"
-            , 3 * 60 * 1000
+        , 3 * 60 * 1000
 
         setTimeout () ->
             res.reply "_pours water_"
-            , 3.1 * 60 * 1000
+        , 3.1 * 60 * 1000
 
         setTimeout () ->
             res.reply "Here you go! :coffee:"
-            , 9 * 60 * 1000
+        , 9 * 60 * 1000
