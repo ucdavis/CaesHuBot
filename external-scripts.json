@@ -9,6 +9,7 @@
   "hubot-redis-brain",
   "hubot-rules",
   "hubot-shipit",
+  "hubot-scripts",
   "hubot-youtube",
   "hubot-azure-scripts/brain/storage-blob-brain"
 ]
