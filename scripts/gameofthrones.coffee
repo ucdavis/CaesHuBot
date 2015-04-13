@@ -1,3 +1,3 @@
 ﻿module.exports = (robot) ->
-    robot.respond /summer/i, (res) ->
+    robot.hear /summer/i, (res) ->
         res.reply "_Winter is coming_"
