@@ -10,7 +10,7 @@ module.exports = (robot) ->
         return if res.message.room != giveroom
         
         receipt = res.match[1]
-        res.reply "Looking for gift with receipt " + receipt + " ..."
+        res.reply "Looking for gift with receipt #{receipt}..."
 
         options =
             url: "#{giving_service_api}/gifts/#{receipt}"
@@ -23,9 +23,7 @@ module.exports = (robot) ->
                 res.reply "no gift found"
             else
                 res.send
-                    message: '#{res.user.name}: Gift #{receipt}'
-                    attachments: [
+                    text: "#{res.user.name}: Gift #{receipt}"
+                    content: 
                         title: 'gift.js'
                         text: body
-                    ]
-                
