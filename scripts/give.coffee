@@ -18,8 +18,9 @@ module.exports = (robot) ->
             headers:
                 "X-Auth-Token": giving_service_token
 
-        request options, (error, response, body) ->
-            if body == ""
+        request options, (error, response, gift) ->
+            console.log(gift)
+            if gift == ""
                 res.reply "no gift found"
             else
                 robot.emit 'slack.attachment', {
@@ -27,5 +28,5 @@ module.exports = (robot) ->
                     channel: res.message.room
                     content: 
                         title: 'gift.js'
-                        text: JSON.parse body
+                        text: JSON.stringify gift
                 }
