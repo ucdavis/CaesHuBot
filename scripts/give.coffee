@@ -23,8 +23,9 @@ module.exports = (robot) ->
             if body == ""
                 res.reply "no gift found"
             else
-                robot.emit 'slack.attachment'
+                robot.emit 'slack.attachment', {
                     message: "Gift #{receipt}"
                     content: 
                         title: 'gift.js'
                         text: body
+                }
