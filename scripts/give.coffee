@@ -7,7 +7,6 @@ giveroom = "give"
 
 module.exports = (robot) ->
     robot.respond /give gift receipt (\d+)/i, (res) ->
-        console.log(res)
         return if res.message.room != giveroom
         
         receipt = res.match[1]
@@ -24,7 +23,8 @@ module.exports = (robot) ->
                 res.reply "no gift found"
             else
                 robot.emit 'slack.attachment', {
-                    message: "Gift #{receipt}"
+                    message: "#{res.message.user.name}: Gift #{receipt}"
+                    channel: res.message.room
                     content: 
                         title: 'gift.js'
                         text: body
