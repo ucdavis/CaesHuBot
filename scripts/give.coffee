@@ -19,7 +19,6 @@ module.exports = (robot) ->
                 "X-Auth-Token": giving_service_token
 
         request options, (error, response, gift) ->
-            console.log(gift)
             if gift == ""
                 res.reply "no gift found"
             else
@@ -28,5 +27,6 @@ module.exports = (robot) ->
                     channel: res.message.room
                     content: 
                         title: 'gift.js'
-                        text: JSON.stringify gift
+                        text: JSON.stringify gift, null, 2
+                        mrkdwn_in: ["text"]
                 }
