@@ -23,7 +23,7 @@ module.exports = (robot) ->
                 res.reply "no gift found"
             else
                 res.send
-                    text: "#{res.user.name}: Gift #{receipt}"
+                    text: "Gift #{receipt}"
                     content: 
                         title: 'gift.js'
                         text: body
