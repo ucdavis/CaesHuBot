@@ -27,5 +27,5 @@ module.exports = (robot) ->
                     channel: res.message.room
                     content: 
                         title: 'gift.js'
-                        text: body
+                        text: JSON.parse body
                 }
