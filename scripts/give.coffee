@@ -22,4 +22,10 @@ module.exports = (robot) ->
             if body == ""
                 res.reply "no gift found"
             else
-                res.reply "```" + body + "```"
+                res.send
+                    message: '#{res.user.name}: Gift #{receipt}'
+                    attachments: [
+                        title: 'gift.js'
+                        text: body
+                    ]
+                
