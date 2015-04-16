@@ -1,7 +1,19 @@
-﻿module.exports = (robot) ->
-    robot.respond /friday me/i, (res) ->
+﻿var video = "https://www.youtube.com/watch?v=kfVsfOSbJY0"
+var notvideo = "Today is not Friday ;-("
 
-        if (new Date()).getDay() == 5        
-            res.reply "https://www.youtube.com/watch?v=kfVsfOSbJY0"
+module.exports = (robot) ->
+    robot.respond /friday me(\sanyway)?/i, (res) ->
+
+        if (new Date()).getDay() == 5 || msg.match[1]     
+            res.reply video
         else
-            res.reply "Today is not Friday ;-("
+            res.reply notvideo
+
+    robot.respond /friday @(\w)(\sanyway)?/i, (res) ->
+        var recipient = msg.match[1]
+        if (new Date()).getDay() == 5 || msg.match[2]
+            res.reply "Okay!"
+            res.messageRoom recipient, "#{recipient}: #{video}"
+        else
+            res.reply notvideo
+            
