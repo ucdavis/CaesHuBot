@@ -1,5 +1,5 @@
-﻿var video = "https://www.youtube.com/watch?v=kfVsfOSbJY0"
-var notvideo = "Today is not Friday ;-("
+﻿video = "https://www.youtube.com/watch?v=kfVsfOSbJY0"
+notvideo = "Today is not Friday ;-("
 
 module.exports = (robot) ->
     robot.respond /friday me(\sanyway)?/i, (res) ->
@@ -10,7 +10,7 @@ module.exports = (robot) ->
             res.reply notvideo
 
     robot.respond /friday @(\w)(\sanyway)?/i, (res) ->
-        var recipient = msg.match[1]
+        recipient = msg.match[1]
         if (new Date()).getDay() == 5 || msg.match[2]
             res.reply "Okay!"
             res.messageRoom recipient, "#{recipient}: #{video}"
