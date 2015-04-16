@@ -13,7 +13,7 @@ module.exports = (robot) ->
         recipient = res.match[1]
         if (new Date()).getDay() == 5 || res.match[2]
             res.reply "Okay!"
-            res.messageRoom recipient, "#{recipient}: #{video}"
+            robot.messageRoom recipient, "#{recipient}: #{video}"
         else
             res.reply notvideo
             
