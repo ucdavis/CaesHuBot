@@ -10,6 +10,7 @@ module.exports = (robot) ->
             res.reply notvideo
 
     robot.respond /friday @(\w)(\sanyway)?/i, (res) ->
+        console.log(res)
         recipient = res.match[1]
         if (new Date()).getDay() == 5 || res.match[2]
             res.reply "Okay!"
