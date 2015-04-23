@@ -8,7 +8,7 @@ notvideo = (notday) ->
     "Today is #{today}, not #{notday} ;-("
 
 module.exports = (robot) ->
-    robot.response /monday me(\sanyway)?/i, (res) ->
+    robot.respond /monday me(\sanyway)?/i, (res) ->
         if (new Date()).getDay() == 1 || res.match[1]     
             res.reply monday_video
         else
