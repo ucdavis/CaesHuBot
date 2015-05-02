@@ -22,13 +22,19 @@ module.exports = (robot) ->
     robot.respond /sing me (.*) by (.*)/i, (msg) ->
         song = msg.match[1]
         artist = msg.match[2]
-        getLyrics msg, song, artist
+        getLyrics msg, song, artist, msg.room
   
+    robot.respond /sing (.*) by (.*) to @(\w+)/i, (msg) ->
+        song = msg.match[1]
+        artist = msg.match[2]
+        target = match[3]
+        getLyrics msg, song, artist, target
+
     robot.respond /shut up/i, (msg) ->
         clearTimeout current if current != null
         current = null
 
-    getLyrics = (msg, song, artist) ->
+    getLyrics = (msg, song, artist, room) ->
         msg.http("http://lyrics.wikia.com/api.php")
             .query(artist: artist, song: song, fmt: "json")
             .get() (err, res, body) ->
@@ -42,11 +48,11 @@ module.exports = (robot) ->
                         matches = lyrics.match /<lyrics>(.*\n)*<\/lyrics>/ig
                         match = matches[0]
                         match = match.substr 8, match.length - 17
-                        singLyrics msg, match.split('\n'), 0
+                        singLyrics msg, match.split('\n'), 0, room
 
-    singLyrics = (msg, lyrics, delay) ->
+    singLyrics = (msg, lyrics, delay, room) ->
         line = lyrics.shift()
         current = setTimeout () ->
-            msg.send line
+            msg.messageRoom room, line
             singLyrics msg, lyrics, line.length * 100
         , delay
