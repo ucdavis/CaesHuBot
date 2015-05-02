@@ -38,11 +38,13 @@
     <Content Include="package.json" />
     <Content Include="Procfile" />
     <Content Include="README.md" />
+    <Content Include="scripts\coffee.coffee" />
     <Content Include="scripts\example.coffee" />
     <Content Include="scripts\friday.coffee" />
     <Content Include="scripts\gameofthrones.coffee" />
     <Content Include="scripts\give.coffee" />
     <Content Include="scripts\mybutt.coffee" />
+    <Content Include="scripts\sing.coffee" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="scripts\" />
