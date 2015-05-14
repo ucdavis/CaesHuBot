@@ -38,6 +38,7 @@
     <Content Include="package.json" />
     <Content Include="Procfile" />
     <Content Include="README.md" />
+    <Content Include="scripts\cumberbatch.coffee" />
     <Content Include="scripts\coffee.coffee" />
     <Content Include="scripts\example.coffee" />
     <Content Include="scripts\friday.coffee" />
