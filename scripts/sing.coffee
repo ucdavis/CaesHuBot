@@ -53,6 +53,6 @@ module.exports = (robot) ->
     singLyrics = (msg, lyrics, delay, room) ->
         line = lyrics.shift()
         current = setTimeout () ->
-            msg.messageRoom room, line
+            robot.messageRoom room, line
             singLyrics msg, lyrics, line.length * 100
         , delay
