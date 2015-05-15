@@ -22,12 +22,12 @@ module.exports = (robot) ->
     robot.respond /sing me (.*) by (.*)/i, (msg) ->
         song = msg.match[1]
         artist = msg.match[2]
-        getLyrics msg, song, artist, msg.room
+        getLyrics msg, song, artist, msg.message.room
   
     robot.respond /sing (.*) by (.*) to @(\w+)/i, (msg) ->
         song = msg.match[1]
         artist = msg.match[2]
-        target = match[3]
+        target = msg.match[3]
         getLyrics msg, song, artist, target
 
     robot.respond /shut up/i, (msg) ->
