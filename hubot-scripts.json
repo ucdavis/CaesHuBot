@@ -11,5 +11,6 @@
   "cumberbatch.coffee",
   "dice.coffee",
   "do-it-live.coffee",
+  "remind.coffee",
   "xkcd.coffee"
 ]
