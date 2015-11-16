@@ -160,4 +160,6 @@ responses = [
 module.exports = (robot) ->
   robot.hear /Are you pondering what I'm pondering\?/i, (msg) ->
     pinkie = msg.random responses
-    msg.send "#{pinkie}"
+    msg.postMessage {
+        text: "#{pinkie}"
+    }
