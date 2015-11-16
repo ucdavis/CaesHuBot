@@ -160,7 +160,7 @@ responses = [
 module.exports = (robot) ->
   robot.hear /Are you pondering what I'm pondering\?/i, (msg) ->
     pinkie = msg.random responses
-    robot.customMessage {
+    robot.adapter.customMessage {
         text: "#{pinkie}"
         channel: msg.message.room
     }
