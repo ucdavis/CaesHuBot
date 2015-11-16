@@ -162,5 +162,5 @@ module.exports = (robot) ->
     pinkie = msg.random responses
     robot.customMessage {
         text: "#{pinkie}"
-        channel: res.message.room
+        channel: msg.message.room
     }
