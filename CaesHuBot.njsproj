@@ -40,6 +40,7 @@
     <Content Include="README.md" />
     <Content Include="scripts\cumberbatch.coffee" />
     <Content Include="scripts\coffee.coffee" />
+    <Content Include="scripts\dontquoteme.coffee" />
     <Content Include="scripts\example.coffee" />
     <Content Include="scripts\friday.coffee" />
     <Content Include="scripts\gameofthrones.coffee" />
