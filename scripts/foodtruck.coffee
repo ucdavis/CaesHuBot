@@ -1,15 +1,15 @@
 cheerio = require('cheerio')
 
 module.exports = (robot) ->
-    robot.hear /foodtruck/i, (msg) ->
-      getTruckLocations(16, msg)
+    robot.respond /foodtruck/i, (msg) ->
+      getTruckLocations(new Date().getDate(), msg)
 
     getTruckLocations = (date, msg) ->
         msg.http("http://sactomofo.com/uc-davis-calendar")
             .get() (err, response, body) ->
               $ = cheerio.load body
               # find the div for this date, then find sibling anchor tags
-              linksForDate = $("td>div:contains(18)").next().find("a")
+              linksForDate = $("td>div:contains(" + date + ")").next().find("a")
 
               # for each event we get back
               linksForDate.each (i, e) ->
@@ -27,7 +27,12 @@ module.exports = (robot) ->
                     # this will only get ones with links
                     likedTrucks = $event("h4:contains('Participating Food Trucks')").nextUntil('span.addtocalendar').filter('a')
 
+                    foodTruckList = $event("h4:contains('Participating Food Trucks')")[0]
+
+                    # siblings = [];
+                    # siblings.push()  while supply > demand
+
                     msg.send "*" + eventLocation + "*"
-                    # TODO: get them without links
+                    # TODO: get them without links, probably by traversing nextSibling
                     likedTrucks.each (index, element) ->
                       msg.send $event(this).text()
